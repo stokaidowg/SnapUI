@@ -1,0 +1,34 @@
+## Interface: 11200
+## Title: |cff4fc3f7Snap|cffffffffUI
+## Notes: A complete UI: themes, unit frames, Grid-style party/raid, Bartender-style bars, nameplates, info bars, bags, bank, chat, a meter and profiles. /snap config
+## Author: Stokaido
+## Version: 2.0
+## SavedVariablesPerCharacter: SnapUIDB
+
+core.lua
+errors.lua
+theme.lua
+edit.lua
+visibility.lua
+healpredict.lua
+roles.lua
+actionbars.lua
+buffs.lua
+unitframes.lua
+group.lua
+bags.lua
+bank.lua
+chat.lua
+prices.lua
+upgrades.lua
+tooltip.lua
+meter.lua
+profiles.lua
+config.lua
+automation.lua
+mail.lua
+friendnotes.lua
+panels.lua
+infobar.lua
+nameplates.lua
+worldmap.lua

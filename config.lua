@@ -317,7 +317,7 @@ local LIST_W, ROW_H, OPT_H = 160, 20, 25
 -- search box that keeps only elements whose name or settings match
 local CATEGORIES = {
   { "Unit frames", { "player", "target", "targettarget", "petframe", "targetlevel", "power", "combo" } },
-  { "Cast bars", { "cast", "targetcast", "mirror" } },
+  { "Cast bars", { "cast", "targetcast", "mirror", "swing" } },
   { "Auras", { "buffs", "debuffs", "playerbuffs", "targetbuffs", "targetdebuffs" } },
   { "Group frames", { "party", "pets", "raid", "raid25", "raid10", "tanks" } },
   { "Action bars", { "bar1", "bar2", "bar3", "bar4", "bar5", "pet", "stance", "micro", "bags", "xp" } },

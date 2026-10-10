@@ -9,6 +9,7 @@ A complete UI replacement for vanilla WoW, in the spirit of pfUI and ElvUI. For 
 
 - **Themes**: font, bar texture, colours, pixel-perfect borders, shadows and accent strips, applied to every part of the UI.
 - **Unit frames**: player, target, target of target, pet, with cast bars (showing who a spell is aimed at), heal prediction and a mana-cost preview of the spell you're casting.
+- **Swing timer**: a bar that fills over your weapon swing, so you can time judgements and seal swaps between hits.
 - **Party and raid frames** (Grid-style): role icons (set them yourself, or let it guess from play), a coloured square when someone has a debuff you can remove, and optional pet and tank windows.
 - **Action bars**, stance/pet bars, micro menu, XP bar.
 - **Nameplates**, **buffs/debuffs**, **tooltips** (vendor prices, and an "upgrade" line for gear).

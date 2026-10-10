@@ -185,6 +185,24 @@ end
 -- done are handed in, and the reward taken when there's no choice to make (with a choice of
 -- rewards the window stays open for you). Hold Shift while talking to an NPC to do it all
 -- by hand. Quests that ask for money are left to you as well.
+-- With SnapGuide following a route, only the quests the guide picks up are accepted by
+-- themselves (s.guideOnly, default on): an NPC with several quests gets the guide's one chosen,
+-- and anything else is left for you to click. Without the guide (or with it hidden), all are.
+
+-- does the guide want this quest? true / false, or nil when there's no guide to ask
+local function GuideWants(title)
+  if not s.guideOnly or not (SnapGuide and SnapGuide.WantsQuest) then return nil end
+  return SnapGuide:WantsQuest(title)
+end
+
+-- the first offered quest to take: the guide's choice, or the first one when there's no guide
+local function PickOffered(titles)
+  for i, title in ipairs(titles) do
+    local want = GuideWants(title)
+    if want == nil then return i end
+    if want then return i end
+  end
+end
 
 -- is the quest with this title in your log ready to hand in? (done, or nothing to collect,
 -- like "talk to so-and-so")
@@ -226,8 +244,9 @@ local function OnQuestEvent()
         end
       end
     end
-    if s.questAccept and table.getn(Titles(GetGossipAvailableQuests())) > 0 then
-      SelectGossipAvailableQuest(1)
+    if s.questAccept then
+      local i = PickOffered(Titles(GetGossipAvailableQuests()))
+      if i then SelectGossipAvailableQuest(i) end
     end
   elseif event == "QUEST_GREETING" then
     if s.questTurnIn then
@@ -238,11 +257,14 @@ local function OnQuestEvent()
         end
       end
     end
-    if s.questAccept and (GetNumAvailableQuests() or 0) > 0 then
-      SelectAvailableQuest(1)
+    if s.questAccept then
+      local titles = {}
+      for i = 1, (GetNumAvailableQuests() or 0) do table.insert(titles, GetAvailableTitle(i)) end
+      local i = PickOffered(titles)
+      if i then SelectAvailableQuest(i) end
     end
   elseif event == "QUEST_DETAIL" then
-    if s.questAccept then
+    if s.questAccept and GuideWants(GetTitleText and GetTitleText()) ~= false then
       AcceptQuest()
     end
   elseif event == "QUEST_PROGRESS" then
@@ -267,11 +289,12 @@ function S:AutomationOptions()
     Toggle("Hide error spam in combat", "hideErrors"),
     Toggle("Accept quests automatically", "questAccept"),
     Toggle("Turn in finished quests", "questTurnIn"),
+    Toggle("With SnapGuide: only accept the guide's quests", "guideOnly"),
   }
 end
 
 S:RegisterModule("automation", function()
-  s = S:Settings("frames", "auto", { sellJunk = true, repair = true, hideErrors = false, questAccept = true, questTurnIn = true })
+  s = S:Settings("frames", "auto", { sellJunk = true, repair = true, hideErrors = false, questAccept = true, questTurnIn = true, guideOnly = true })
   HookErrors()
   SellButton()
   local events = CreateFrame("Frame")

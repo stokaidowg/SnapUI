@@ -14,7 +14,7 @@ A complete UI replacement for vanilla WoW, in the spirit of pfUI and ElvUI. For 
 - **Nameplates**, **buffs/debuffs**, **tooltips** (vendor prices, and an "upgrade" line for gear).
 - **Bags and bank** in one window each, with search, bag slots and the keyring.
 - **Chat**, **info bars**, **minimap**, a **damage/heal meter** (`/meter`).
-- **Quality of life**: open all mail, notes on friends, a windowed world map with the unexplored areas revealed, restyled loot rolls, auto-sell greys, mouse-over fading per element.
+- **Quality of life**: open all mail, notes on friends, a windowed world map with the unexplored areas revealed, restyled loot rolls, auto-sell greys, auto accept and hand in quests (with SnapGuide, only the quests the guide picks up), mouse-over fading per element.
 - **Edit mode** with a snapping grid, and **profiles** per character.
 
 ## Requirements

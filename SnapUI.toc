@@ -2,9 +2,10 @@
 ## Title: |cff4fc3f7Snap|cffffffffUI
 ## Notes: A complete UI: themes, unit frames, Grid-style party/raid, Bartender-style bars, nameplates, info bars, bags, bank, chat, a meter and profiles. /snap config
 ## Author: Stokaido
-## Version: 2.0
+## Version: 2.1
 ## SavedVariablesPerCharacter: SnapUIDB
 
+version.lua
 core.lua
 errors.lua
 theme.lua

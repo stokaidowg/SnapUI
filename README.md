@@ -34,10 +34,19 @@ A complete UI replacement for vanilla WoW, in the spirit of pfUI and ElvUI. For 
 - `/snap`: edit mode (drag things around; they snap to a grid)
 - `/meter`: damage/heal meter
 - `/snap role tank|healer|dps|auto`: set your target's role (or Alt-right-click them on the party/raid frames)
+- `/snap bug`: a report of versions and recent errors to copy into a bug report (no character name in it)
+
+## Reporting bugs
+
+Type `/snap bug`, press **Ctrl+C**, and paste it into a new issue under **Issues** with a few words on what happened. SnapUI keeps a log of every add-on's Lua errors, so this helps with the other add-ons too.
 
 ## Credits
 
 The textures and fonts in `media/` come from [pfUI](https://github.com/shagu/pfUI) by Shagu (MIT licence, see `media/pfUI-LICENSE.txt`). The fonts belong to their designers: Expressway, Continuum and Die Die Die (Ray Larabie / Typodermic), Big Noodle Titling (Sentinel Type), Homespun (Brian Kent), Hooge (Ralph Hoogeveen), PT Sans Narrow (ParaType, SIL Open Font Licence) and Roboto Mono (Google, Apache 2.0).
+
+## Update notices
+
+If someone in your party, raid or guild has a newer version of one of these add-ons, you get one line in chat with a link to its download page. To do that, the add-ons send each other their version numbers (only those) over the game's add-on channel.
 
 ## Licence
 

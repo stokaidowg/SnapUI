@@ -615,6 +615,10 @@ SlashCmdList["SNAPUI"] = function(msg)
     S:RoleCommand(roleArg)
     return
   end
+  if (msg == "bug" or msg == "report") and S.ShowBugReport then
+    S:ShowBugReport()
+    return
+  end
   local _, _, errArg = string.find(msg, "^%s*errors?%s*(%a*)%s*$")
   if errArg and S.ErrorsCommand then
     S:ErrorsCommand(errArg)
@@ -678,7 +682,11 @@ SlashCmdList["SNAPUI"] = function(msg)
     S.Print("/snap cursor  tooltip follows the mouse cursor, or goes back to its box")
     S.Print("/snap role tank | healer | dps | auto  your target's role icon (or Alt-right-click a party/raid cell)")
     S.Print("/snap errors  recent SnapUI Lua errors (all: every addon, clear: empty the log)")
+    S.Print("/snap bug  a report of versions and recent errors to copy into a GitHub issue")
   else
     S:ToggleEdit()
   end
 end
+
+-- update notices (version.lua)
+if SnapVersions then SnapVersions.Register("SnapUI") end
